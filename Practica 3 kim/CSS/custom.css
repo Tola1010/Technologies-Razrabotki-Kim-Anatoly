@@ -1,0 +1,17 @@
+
+body {
+  min-height: 100vh;
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+}
+
+.navbar-brand {
+  letter-spacing: 0.3px;
+}
+
+.toast-container {
+  z-index: 1080;
+}

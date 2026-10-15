@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Панель — Практическая работа 3</title>
+
+  <!-- Bootstrap 5 CSS (CDN) -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+  <!-- Свой CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Панель проекта</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Переключить навигацию">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#metrics">Показатели</a></li>
+          <li class="nav-item"><a class="nav-link" href="#recent">Действия</a></li>
+          <li class="nav-item"><a class="nav-link" href="#add" data-bs-toggle="modal" data-bs-target="#addModal">Добавить</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+
+    <!-- Приветствие -->
+    <div class="d-flex align-items-center gap-3 mb-4">
+      <img src="images/avatar.svg" alt="Аватар пользователя" width="56" height="56" class="rounded-circle">
+      <div>
+        <h1 class="h4 mb-0">Панель статуса</h1>
+        <p class="text-muted mb-0">Данные из dashboard.json и notifications.json</p>
+      </div>
+    </div>
+
+    <!-- Карточки показателей -->
+    <section id="metrics" class="row g-3 mb-4">
+      <!-- Заполняется из dashboard.json через JS -->
+    </section>
+
+    <!-- Таблица последних действий -->
+    <section id="recent" class="card mb-4">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span class="fw-semibold">Последние действия</span>
+        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="offcanvas" data-bs-target="#infoCanvas">
+          Подробнее
+        </button>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Действие</th>
+              <th scope="col">Статус</th>
+            </tr>
+          </thead>
+          <tbody id="recentBody">
+            <!-- Заполняется из dashboard.json через JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Форма -->
+    <section class="card mb-4">
+      <div class="card-header fw-semibold">Быстрая форма</div>
+      <div class="card-body">
+        <form id="quickForm" novalidate>
+          <div class="mb-3">
+            <label for="quickEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="quickEmail" required>
+            <div class="invalid-feedback">Введите корректный email.</div>
+            <div class="valid-feedback">Всё в порядке.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="quickComment" class="form-label">Комментарий</label>
+            <textarea class="form-control" id="quickComment" rows="2" maxlength="200"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="container py-4 text-center text-muted">
+    <small>© 2026 Практическая работа 3 — ТРПО</small>
+  </footer>
+
+  <!-- Modal: добавление записи -->
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="addForm" novalidate>
+          <div class="modal-header">
+            <h5 class="modal-title" id="addModalLabel">Добавить запись</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="addTitle" class="form-label">Название действия</label>
+              <input type="text" class="form-control" id="addTitle" required minlength="2" maxlength="60">
+              <div class="invalid-feedback">Минимум 2 символа.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="addStatus" class="form-label">Статус</label>
+              <select class="form-select" id="addStatus" required>
+                <option value="">Выберите...</option>
+                <option value="Новая">Новая</option>
+                <option value="В работе">В работе</option>
+                <option value="Готово">Готово</option>
+              </select>
+              <div class="invalid-feedback">Выберите статус.</div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Offcanvas: дополнительная информация -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="infoCanvas" aria-labelledby="infoCanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="infoCanvasLabel">О панели</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p>Учебная панель на Bootstrap 5. Данные берутся из <code>data/dashboard.json</code> и <code>data/notifications.json</code>.</p>
+      <img src="images/chart.svg" alt="График" class="img-fluid">
+    </div>
+  </div>
+
+  <!-- Toast: подтверждение действия -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="saveToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastText">Изменения сохранены</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle (с Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Свой JS -->
+  <script src="js/app.js"></script>
+</body>
+</html>
