@@ -1,0 +1,123 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Карточка (вложенность не глубже 3 уровней)
+.card {
+  @include surface;
+  transition: transform 0.2s ease;
+
+  &__image {
+    width: 100%;
+    border-radius: $radius-sm;
+    margin-bottom: $space-sm;
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 6px;
+  }
+
+  &__meta {
+    color: $color-muted;
+    font-size: 14px;
+    margin: 0 0 6px;
+  }
+
+  &__price {
+    color: $color-accent;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// Панель фильтров
+.filters {
+  @include surface;
+
+  &__title {
+    margin: 0 0 $space;
+    font-size: 1.1rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+}
+
+// Поля формы
+input, select {
+  padding: 10px;
+  font: inherit;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+
+  &:focus {
+    @include focus-ring;
+  }
+}
+
+// Кнопки
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  font: inherit;
+
+  &--primary {
+    background: $color-accent;
+    color: $color-surface;
+
+    &:hover {
+      background: darken($color-accent, 10%);
+    }
+  }
+
+  &:focus {
+    @include focus-ring;
+  }
+}
+
+// Информационный блок
+.info {
+  @include surface;
+  margin-bottom: $space-xl;
+
+  h2 { margin-top: 0; }
+}
+
+// Шапка
+.site-header {
+  background: #111827;
+  color: $color-surface;
+  padding: $space 0;
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $space;
+  }
+
+  .brand { font-weight: 800; font-size: 22px; }
+
+  nav a {
+    color: $color-surface;
+    text-decoration: none;
+    margin-left: $space;
+  }
+}
+
+// Подвал
+.site-footer {
+  padding: $space-xl 0;
+  text-align: center;
+  color: $color-muted;
+}

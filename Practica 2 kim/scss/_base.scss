@@ -1,0 +1,23 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: $color-text;
+  background: $color-bg;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: $color-accent; }
+a:focus { @include focus-ring; }
+
+.container {
+  @include container;
+}

@@ -1,0 +1,22 @@
+@use 'variables' as *;
+
+// Миксин: поверхность карточки
+@mixin surface {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  padding: $space;
+}
+
+// Миксин: обводка при фокусе (доступность)
+@mixin focus-ring {
+  outline: 2px solid $color-accent;
+  outline-offset: 2px;
+}
+
+// Миксин: адаптивный контейнер
+@mixin container($max: $container) {
+  max-width: $max;
+  margin: 0 auto;
+  padding: 0 $space-lg;
+}

@@ -1,0 +1,24 @@
+// Цвета — из theme.json
+$color-accent: #315efb;
+$color-text: #20242a;
+$color-surface: #ffffff;
+$color-muted: #667085;
+$color-bg: #f4f6fb;
+$color-border: #e5e7eb;
+
+// Радиусы и отступы
+$radius: 12px;
+$radius-sm: 8px;
+$space: 1rem;
+$space-sm: 0.5rem;
+$space-lg: 1.5rem;
+
+// Ширина контейнера
+$container: 1100px;
+
+// Breakpoints
+$bp-md: 768px;
+$bp-sm: 480px;
+
+// Производные вычисления (функция/вычисление Sass)
+$space-xl: $space * 2;

@@ -1,0 +1,31 @@
+@use 'variables' as *;
+
+// Основная раскладка каталога: фильтры слева + карточки справа
+.catalog {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: $space-lg;
+  padding: $space-xl 0;
+}
+
+// Сетка карточек — адаптивная через auto-fit
+.catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: $space-lg;
+}
+
+// Breakpoint 1: планшет — фильтры над карточками
+@media (max-width: $bp-md) {
+  .catalog {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Breakpoint 2: мобильный — плотнее карточки
+@media (max-width: $bp-sm) {
+  .catalog__grid {
+    grid-template-columns: 1fr;
+    gap: $space;
+  }
+}
