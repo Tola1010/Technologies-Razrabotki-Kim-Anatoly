@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог — Практическая работа 2</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <span class="brand">Каталог</span>
+      <nav aria-label="Основная навигация">
+        <a href="#catalog">Каталог</a>
+        <a href="#about">О проекте</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="catalog">
+      <!-- Панель фильтров -->
+      <aside class="filters">
+        <h2 class="filters__title">Фильтры</h2>
+        <form class="filters__form">
+          <label for="category">Категория</label>
+          <select id="category" name="category">
+            <option value="">Все</option>
+            <option value="book">Книги</option>
+            <option value="journal">Журналы</option>
+          </select>
+
+          <label for="price">Максимальная цена</label>
+          <input type="number" id="price" name="price" min="0" max="10000" placeholder="1000">
+
+          <label for="search">Поиск</label>
+          <input type="search" id="search" name="search" minlength="2" maxlength="50" placeholder="Название...">
+
+          <button type="submit" class="btn btn--primary">Применить</button>
+        </form>
+      </aside>
+
+      <!-- Сетка карточек -->
+      <section id="catalog" class="catalog__grid">
+        <article class="card">
+          <img class="card__image" src="images/product-01.svg" alt="Обложка книги HTML и CSS">
+          <h3 class="card__title">HTML и CSS</h3>
+          <p class="card__meta">Книги</p>
+          <p class="card__price">1200 ₽</p>
+        </article>
+        <article class="card">
+          <img class="card__image" src="images/product-02.svg" alt="Обложка книги JavaScript">
+          <h3 class="card__title">JavaScript</h3>
+          <p class="card__meta">Книги</p>
+          <p class="card__price">1500 ₽</p>
+        </article>
+        <article class="card">
+          <img class="card__image" src="images/product-03.svg" alt="Обложка журнала Web-разработка">
+          <h3 class="card__title">Web-разработка</h3>
+          <p class="card__meta">Журналы</p>
+          <p class="card__price">800 ₽</p>
+        </article>
+        <article class="card">
+          <img class="card__image" src="images/product-01.svg" alt="Обложка книги SCSS">
+          <h3 class="card__title">SCSS</h3>
+          <p class="card__meta">Книги</p>
+          <p class="card__price">900 ₽</p>
+        </article>
+        <article class="card">
+          <img class="card__image" src="images/product-02.svg" alt="Обложка книги Git">
+          <h3 class="card__title">Git</h3>
+          <p class="card__meta">Книги</p>
+          <p class="card__price">1100 ₽</p>
+        </article>
+        <article class="card">
+          <img class="card__image" src="images/product-03.svg" alt="Обложка журнала Frontend">
+          <h3 class="card__title">Frontend</h3>
+          <p class="card__meta">Журналы</p>
+          <p class="card__price">700 ₽</p>
+        </article>
+        <article class="card">
+          <img class="card__image" src="images/product-01.svg" alt="Обложка книги HTML5">
+          <h3 class="card__title">HTML5</h3>
+          <p class="card__meta">Книги</p>
+          <p class="card__price">1300 ₽</p>
+        </article>
+        <article class="card">
+          <img class="card__image" src="images/product-02.svg" alt="Обложка книги CSS Grid">
+          <h3 class="card__title">CSS Grid</h3>
+          <p class="card__meta">Книги</p>
+          <p class="card__price">1400 ₽</p>
+        </article>
+        <article class="card">
+          <img class="card__image" src="images/product-03.svg" alt="Обложка журнала Accessibility">
+          <h3 class="card__title">Accessibility</h3>
+          <p class="card__meta">Журналы</p>
+          <p class="card__price">600 ₽</p>
+        </article>
+        <article class="card">
+          <img class="card__image" src="images/product-01.svg" alt="Обложка книги Flexbox">
+          <h3 class="card__title">Flexbox</h3>
+          <p class="card__meta">Книги</p>
+          <p class="card__price">1000 ₽</p>
+        </article>
+        <article class="card">
+          <img class="card__image" src="images/product-02.svg" alt="Обложка книги DevTools">
+          <h3 class="card__title">DevTools</h3>
+          <p class="card__meta">Книги</p>
+          <p class="card__price">950 ₽</p>
+        </article>
+        <article class="card">
+          <img class="card__image" src="images/product-03.svg" alt="Обложка журнала Web Performance">
+          <h3 class="card__title">Web Performance</h3>
+          <p class="card__meta">Журналы</p>
+          <p class="card__price">850 ₽</p>
+        </article>
+      </section>
+    </div>
+
+    <!-- Информационный блок -->
+    <section id="about" class="info">
+      <h2>О проекте</h2>
+      <p>Учебный каталог на HTML и SCSS. Данные взяты из <code>data/catalog.csv</code> и <code>data/theme.json</code>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Практическая работа 2 — ТРПО</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+# Редакторы и IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Операционная система
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Зависимости
+node_modules/
+
+# Логи
+*.log
+npm-debug.log*
+
+# Кеш Sass
+.sass-cache/
+*.css.map
+
+# Локальные файлы
+.env
+.env.local
+
+# Архивы
+*.zip
+*.rar
+*.7z
